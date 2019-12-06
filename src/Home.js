@@ -1,18 +1,28 @@
 import React, { Component } from "react";
 import SchoolContainer from "./SchoolContainer";
+import Title from "./Title";
 
 export default class Home extends Component {
   render() {
-    console.log("Home", this.props);
     return (
-      <div className="ui raised segment">
+      <div>
         <div
-          className="ui segment blue attached inverted"
-          style={{ marginBottom: "55px" }}
+          className="ui inverted vertical masthead center aligned segment"
+          // style={{ marginBottom: "55px" }}
         >
-          <h2>SwitchList</h2>
+          <div className="ui text container">
+            <div className="ui inverted header">
+              <Title />
+              <h2
+                style={{ color: "#5c6566", fontWeight: 300, marginTop: "5px" }}
+              >
+                Bootcamp Outcomes at a Glance
+              </h2>
+            </div>
+          </div>
         </div>
-        <SchoolContainer bootcampObj={this.props.bootcampObj} />
+
+        <SchoolContainer />
       </div>
     );
   }

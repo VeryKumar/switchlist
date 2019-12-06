@@ -10,15 +10,33 @@ import Codesmith from "./Codesmith";
 import Show from "./Show";
 import Home from "./Home";
 class App extends Component {
+  state = { bootcampsObj: {} };
+
+  componentDidMount = async () => {
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
+    let database = firebase.database();
+    let bootcampsRef = database.ref("bootcamps");
+    bootcampsRef.on("value", snapshot => {
+      let data = snapshot.val();
+      this.setState({ bootcampsObj: data }, console.log("FIRST", data));
+    });
+  };
+
   render() {
+    console.log("APP", this.state.bootcampsObj);
     return (
       <Router>
-        <Switch>
-          <div>
-            <Route exact path="/" component={Home} />
-            <Route path="/bootcamps/:id" component={Show} />
-          </div>
-        </Switch>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route
+            path="/bootcamps/:id"
+            render={props => (
+              <Show {...props} bootcampsObj={this.state.bootcampsObj} />
+            )}
+          />
+        </div>
       </Router>
     );
   }

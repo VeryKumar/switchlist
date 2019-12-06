@@ -1,0 +1,9 @@
+.ui.card.bootcamp {
+  margin: 10px;
+}
+.ui.card.bootcamp:first-child {
+  margin-top: 10px;
+}
+.ui.card.bootcamp:last-child {
+  margin-bottom: 10px;
+}

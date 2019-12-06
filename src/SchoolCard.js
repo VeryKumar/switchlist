@@ -3,6 +3,7 @@ import Codesmith from "./Codesmith";
 import Epicodus from "./Epicodus";
 import Fullstack from "./Fullstack";
 import HackReactor from "./HackReactor";
+import "./SchoolCard.css";
 
 export default class SchoolCard extends Component {
   bootcampName = () => {
@@ -45,7 +46,7 @@ export default class SchoolCard extends Component {
     // }
     console.log(this.props.bootcamp[this.props.bootcampName].img);
     return (
-      <div className="  ui centered stackable card">
+      <div className="ui card bootcamp">
         <div className="image">
           {/* <img
             src={
@@ -74,7 +75,7 @@ export default class SchoolCard extends Component {
         <div className="extra content">
           <a>
             <i className="user icon"></i>
-            22 Friends
+            Apply Now
           </a>
         </div>
       </div>

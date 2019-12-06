@@ -1,0 +1,35 @@
+/* .mediansalary {
+  width: 50%;
+  float: left;
+}
+
+.jobtitles {
+  width: 50%;
+  float: right;
+} */
+
+/* .grid {
+  display: grid;
+  grid-template-columns: 70% 30%;
+  column-gap: 1em;
+} */
+
+body {
+  color: #5c6566;
+}
+.ui.cards > .card.employmentresults {
+  width: 100px;
+}
+
+.ui.cards > .card.jobtitles {
+  width: "75px";
+  height: "75px";
+}
+
+.ui.raised.card {
+  background: #393945;
+}
+
+.background {
+  background: #393945;
+}

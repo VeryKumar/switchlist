@@ -1,17 +1,20 @@
 import React, { Component } from "react";
-import Search from "./Search";
+import Title from "./Title";
 import SchoolList from "./SchoolList";
 import config from "./config";
 import * as firebase from "firebase/app";
 import "firebase/database";
 import SchoolCard from "./SchoolCard";
 import { Link } from "react-router-dom";
+import "./SchoolContainer.css";
 
 export default class SchoolContainer extends Component {
   state = { bootcampsObj: {} };
 
   componentDidMount = () => {
-    firebase.initializeApp(config);
+    if (!firebase.apps.length) {
+      firebase.initializeApp(config);
+    }
     let database = firebase.database();
     let bootcampsRef = database.ref("bootcamps");
     bootcampsRef.on("value", snapshot => {
@@ -44,6 +47,10 @@ export default class SchoolContainer extends Component {
   };
 
   render() {
-    return <div className="ui link cards">{this.bootcampList()}</div>;
+    return (
+      <div className="ui centered cards cardcontainer">
+        {this.bootcampList()}
+      </div>
+    );
   }
 }
